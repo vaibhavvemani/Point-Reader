@@ -1,5 +1,6 @@
 from image2text.easy import detect_text
 from penDetection.yolo import detect_pen
+from api.api import get_meaning
 import cv2
 
 image_path = 'C:/Users/vaibh/Projects/Finals/point-reader/app/testdata/cat.png'
@@ -25,6 +26,8 @@ for bbox, text, prob in text_result:
 
 cv2.imwrite('output_with_text.jpg', image)
 
+overlap_word = ""
+
 def check_overlap(box1, box2):
     x1, y1, x2, y2 = box1
     x3, y3, x4, y4 = box2
@@ -36,11 +39,15 @@ def check_overlap(box1, box2):
 for pen in pen_result[0].boxes:
     for bbox, text, prob in text_result:
         if check_overlap(pen.xyxy[0].numpy(), bbox[0]+bbox[2]):
-            print(text)
+            overlap_word = text
+            break
 
 for pen in pen_result[0].boxes:
     for bbox, text, prob in text_result:
         print("Pen Box: ", pen.xyxy[0].numpy())
         print("Text box: ", bbox[0]+bbox[2])
+
+definition = get_meaning(overlap_word)
+print("overlap_word:", definition)
 
 
