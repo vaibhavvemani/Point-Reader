@@ -3,7 +3,7 @@ from penDetection.yolo import detect_pen
 from api.api import get_meaning
 import cv2
 
-image_path = 'C:/Users/vaibh/Projects/Finals/point-reader/app/testdata/cat.png'
+image_path = 'C:/Users/vaibh/Projects/Finals/point-reader/app/testdata/test_brush.jpg'
 
 text_result = detect_text(image_path)
 pen_result = detect_pen(image_path)
@@ -47,7 +47,8 @@ for pen in pen_result[0].boxes:
         print("Pen Box: ", pen.xyxy[0].numpy())
         print("Text box: ", bbox[0]+bbox[2])
 
-definition = get_meaning(overlap_word)
-print("overlap_word:", definition)
+# definition = get_meaning(overlap_word)
+# print("overlap_word:", definition)
+print(overlap_word)
 
 
