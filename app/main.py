@@ -47,8 +47,8 @@ for pen in pen_result[0].boxes:
         print("Pen Box: ", pen.xyxy[0].numpy())
         print("Text box: ", bbox[0]+bbox[2])
 
-# definition = get_meaning(overlap_word)
-# print("overlap_word:", definition)
+definition = get_meaning(overlap_word)
+print("overlap_word:", definition)
 print(overlap_word)
 
 
