@@ -28,6 +28,7 @@ while True:
                 cv2.putText(image, text, (int(bbox[0][0]), int(bbox[0][1]) - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 2)
                 overlap_word = text
                 break
+    cv2.imwrite('output_with_brush.jpg', image)
     cv2.imshow('image', image)
 
     # definition = get_meaning(overlap_word)
